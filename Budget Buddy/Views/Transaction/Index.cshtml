@@ -1,0 +1,58 @@
+@model IEnumerable<Budget_Buddy.Models.Transaction>
+
+@{
+    ViewData["Title"] = "Index";
+    ViewData["PageTitle"] = "Transaction";
+    ViewData["PageActionText"] = "+ Add Transaction";
+    ViewData["PageActionUrl"] = "/Transaction/CreateOrUpdate";
+}
+
+
+
+<div class="row">
+    <div class="col-md-7">
+        <ejs-grid id="transactions" dataSource="@Model" gridLines="None" allowPaging="true" allowSorting="true">
+            <e-grid-columns>
+                <e-grid-column headerText="Category" field="CategoryWithIcon" textAlign="Left"></e-grid-column>
+                <e-grid-column headerText="Amount" template="#AmountColumnTemplate" width="150" textAlign="Left"></e-grid-column>
+                <e-grid-column headerText="Date" field="Date" type="date" format="MMM-dd-yyyy" width="150" textAlign="Left"></e-grid-column>
+                <e-grid-column headerText="Actions" template="#actionColumnTemplate" width="100" textAlign="Center">
+
+                </e-grid-column>
+            </e-grid-columns>
+        </ejs-grid>
+
+    </div>
+
+    <div class=" col-md-5">
+        <div class="widget h-100 d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-money-bill-transfer fa-2xl"></i>
+        </div>
+    </div>
+
+</div>
+
+<script id="AmountColumnTemplate" type="text/x-template">
+    ${if(Category.Type =="Income")}
+    <span class="badge bg-success">${FormattedAmount}</span>
+    ${else}
+    <span class="badge bg-danger">${FormattedAmount}</span>
+    ${/if}
+</script>
+
+<script id="actionColumnTemplate" type="text/x-template">
+    <div class="d-flex flex-row justify-content-start">
+        <a class="btn btn-sm no-a-decoration" href="/Transaction/CreateOrUpdate/${TransactionID}">
+            <i class="fa-solid fa-pen fa-lg"></i>
+        </a>
+        <form action="/Transaction/Delete/${TransactionID}" method="post">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-sm btn-link no-a-decoration"
+                    onclick="return confirm(&quot;Are you sure to delete this record? &quot;)">
+                <i class="fa-solid fa-trash-can fa-lg text-danger"></i>
+            </button>
+        </form>
+    </div>
+</script>
+
+

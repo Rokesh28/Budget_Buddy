@@ -1,0 +1,53 @@
+@model Budget_Buddy.Models.Transaction
+
+@{
+    ViewData["Title"] = "Create";
+    ViewData["PageTitle"] = Model.TransactionID == 0 ? "Create Transaction" : "Edit Transaction";
+}
+
+
+<div class="row">
+    <div class="col-md-7">
+        <div class="widget p-5">
+            <form asp-action="CreateOrUpdate">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" name="TransactionID" value="@Model.TransactionID" />
+                <div class="form-group mb-3">
+                    <ejs-dropdownlist id="ddlCategory" placeholder="Select the category" popupHeight="220px" floatLabelType="Auto" ejs-for="CategoryId" allowFiltering="true" ignoreAccent="true" filterType="Contains" dataSource="@ViewBag.Categories">
+                        <e-dropdownlist-fields text="TitleWithIcon" value="CategoryId"></e-dropdownlist-fields>
+                    </ejs-dropdownlist>
+                    <span asp-validation-for="CategoryId" class="text-danger fs-6"></span>
+
+                </div>
+                <div class="form-group mb-3">
+                    <ejs-numerictextbox id="amount" format="c0" placeholder="Amount" min=0 floatLabelType="Auto" ejs-for="Amount" Type="text"></ejs-numerictextbox>
+                    <span asp-validation-for="Amount" class="text-danger fs-6"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <ejs-textbox id="note" placeholder="Note" ejs-for="Note" multiline="true" floatLabelType="Auto"></ejs-textbox>
+                   
+                </div>
+                <div class="form-group mb-3">
+                    <ejs-datepicker id="datepicker" placeholder="Date" floatLabelType="Auto" ejs-for="Date"></ejs-datepicker>
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <ejs-button id="submit" type="submit" content="Submit" cssClass="e-success"></ejs-button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class=" col-md-5">
+        <div class="widget h-100 d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-money-bill-transfer fa-2xl"></i>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
