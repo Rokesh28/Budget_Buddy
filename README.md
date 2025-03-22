@@ -33,7 +33,8 @@
 3. Run EF Core migrations:
    ```bash
    dotnet ef database update
-dotnet run
+   dotnet run
+
 
 ## ✨ Coming Soon
 
