@@ -1,10 +1,42 @@
-# Budget_Buddy
-Budget Buddy is an extensive expense-tracking application designed to help users manage their finances efficiently. The app offers statistical analytics based on various categories and provides insightful data visualizations to give a clear picture of income and expenses.
+# 💰 Budget Buddy
 
-## Features
+**Budget Buddy** is a smart personal finance management app built with **ASP.NET Core MVC**. It helps users track their income, expenses, and transaction history with an intuitive dashboard — all while keeping performance and simplicity at the forefront.
 
-- **Expense Tracking:** Record and categorize expenses easily.
-- **Statistical Analytics:** Analyze spending patterns with comprehensive statistics.
-- **Data Visualization:** Visualize your financial data with interactive charts and graphs.
-- **Income vs Expense:** Compare your income against your expenses over time.
-- **Category Breakdown:** Understand where your money is going with category-wise expense breakdowns.
+---
+
+## 🚀 Features
+
+- 📊 **Interactive Dashboard** – Real-time tracking of balances and transaction summaries
+- 💸 **Transaction Manager** – Add, edit, delete income/expenses
+- 🧾 **Category Management** – Classify expenses for better insights
+- 💡 Built with clean MVC architecture for maintainability and scalability
+- 🔐 Secure by design: ready for authentication and role-based enhancements
+
+---
+
+## 🧰 Tech Stack
+
+- **Backend**: ASP.NET Core MVC (.NET 8)
+- **Database**: Entity Framework Core + Migrations
+- **Views**: Razor Pages
+- **Frontend**: Bootstrap 5, jQuery (optional JS)
+- **ORM**: EF Core with LINQ-based queries
+- **Environment Config**: `appsettings.json`
+
+---
+
+
+## 🛠️ Getting Started (Local Setup)
+
+1. Clone the repository  
+2. Create your local database connection string in `appsettings.json`  
+3. Run EF Core migrations:
+   ```bash
+   dotnet ef database update
+dotnet run
+
+✨ Coming Soon
+User authentication (ASP.NET Identity)
+
+Budget limits and reminders
+
