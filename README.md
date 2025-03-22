@@ -35,8 +35,8 @@
    dotnet ef database update
 dotnet run
 
-✨ Coming Soon
-User authentication (ASP.NET Identity)
+## ✨ Coming Soon
 
-Budget limits and reminders
-
+- 🔐 **User Authentication** – Integration with ASP.NET Identity for login & user-level security
+- 🧠 **Smart Budget Limits** – Set monthly caps and track spending trends
+- ⏰ **Expense Reminders** – Never forget a bill again
